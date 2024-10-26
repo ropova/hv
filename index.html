@@ -1,0 +1,674 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rodolfo Poveda Vásquez - CV Interactivo</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<style>
+:root {
+  --primary: #2563eb;    /* Rich blue */
+  --secondary: #1e40af;  /* Darker blue */
+  --accent: #3b82f6;     /* Bright blue */
+  --light: #f8fafc;      /* Very light background */
+  --dark: #1e293b;       /* Dark slate */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+  line-height: 1.6;
+  color: var(--dark);
+  background: var(--light);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Header Styles */
+.header {
+  background: var(--dark);
+  padding: 4rem 0;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--primary);
+  opacity: 0.9;
+}
+
+.profile-card {
+  background: rgba(30, 41, 59, 0.8); /* Using dark color with transparency */
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 3rem;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.name {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  letter-spacing: -1px;
+}
+
+.title {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+/* Main Content Styles */
+.section {
+  padding: 3rem;
+  margin: 3rem 0;
+  background: white;
+  border-radius: 12px;
+  border-left: 4px solid var(--primary);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+  transition: all 0.3s ease;
+}
+
+.section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.section-title {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 3rem;
+  position: relative;
+  padding-bottom: 1rem;
+  font-weight: 600;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+/* Contact Grid */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.contact-item {
+  background: rgba(30, 41, 59, 0.6);
+  padding: 1.2rem 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+.contact-item i {
+  font-size: 1.2rem;
+  color: var(--accent);
+}
+
+.contact-item span {
+  color: white;
+  font-size: 0.95rem;
+}
+
+.contact-item.clickable:hover {
+  background: rgba(30, 41, 59, 0.8);
+  transform: translateY(-2px);
+}
+
+/* Skills Section */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.skill-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(30, 41, 59, 0.1);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+}
+
+.skill-icon {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+
+/* Timeline Item */
+.timeline-item {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.timeline-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Certifications Section */
+.courses-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.course-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.course-card h3 {
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+.course-platform {
+  margin: 1rem 0;
+  padding: 0.8rem;
+  background: var(--light);
+  border-radius: 8px;
+  list-style: none;
+  transition: all 0.3s ease;
+}
+
+.course-platform:hover {
+  background: var(--primary);
+  color: white;
+  padding-left: 1.2rem;
+}
+
+/* Print Button Style */
+#printBtn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  transition: all 0.3s ease;
+}
+
+#printBtn:hover {
+  background: var(--secondary);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+}
+
+/* Additional Spacing */
+p {
+  margin-bottom: 1.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    padding: 3rem 0;
+  }
+  
+  .name {
+    font-size: 2rem;
+  }
+  
+  .section {
+    padding: 2rem;
+    margin: 2rem 0;
+  }
+  
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .profile-card {
+    padding: 2rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .header {
+    background: none;
+    color: black;
+    padding: 1rem 0;
+  }
+  
+  .profile-card {
+    background: none;
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+  
+  .section {
+    break-inside: avoid;
+    border: 1px solid #ddd;
+    margin: 1rem 0;
+  }
+  
+  .contact-item {
+    background: none;
+    border: 1px solid #ddd;
+  }
+  
+  .name {
+    color: var(--primary);
+    -webkit-text-fill-color: initial;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <div class="profile-card">
+      <h1 class="name">Rodolfo Poveda Vásquez</h1>
+      <p class="title">Director de Desarrollo & Profesional en Sistemas</p>
+      
+      <div class="contact-grid">
+        <div class="contact-item clickable">
+          <i class="fas fa-phone"></i>
+          <span>317 023 7360</span>
+        </div>
+        <div class="contact-item clickable">
+          <i class="fas fa-envelope"></i>
+          <span>rpovedav@gmail.com</span>
+        </div>
+        <div class="contact-item clickable">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Condominio Villa Fernanda, Florencia, Caquetá</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-id-card"></i>
+          <span>17.658.908 de Florencia</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-calendar"></i>
+          <span>26 de julio de 1978</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-user"></i>
+          <span>Soltero</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <section class="section animate">
+    <h2 class="section-title">Perfil Profesional</h2>
+    <p>
+      Profesional en Sistemas de Información con sólida experiencia en desarrollo web y de software, soporte técnico y gestión de proyectos tecnológicos. Destacado por mi capacidad para resolver problemas, creatividad en el diseño de soluciones innovadoras y habilidad para trabajar en equipo. Comprometido con el aprendizaje continuo y la aplicación eficiente de conocimientos para mejorar procesos y cumplir objetivos organizacionales.
+    </p>
+  </section>
+
+  <section class="section animate">
+    <h2 class="section-title">Educación</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Tecnólogo en Sistemas de Información</h3>
+        <p>1999</p>
+      </div>
+      <div class="timeline-item">
+        <h3>Bachiller Académico</h3>
+        <p>Seminario Menor San José</p>
+        <p>1994</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section animate">
+    <h2 class="section-title">Certificaciones y Cursos</h2>
+    <div class="courses-container">
+      <div class="course-card">
+        <h3>Desarrollo Full Stack</h3>
+        <ul>
+          <li class="course-platform">Coursera: Desarrollo Web Full Stack</li>
+          <li class="course-platform">Udemy: Curso Completo de Desarrollo Web</li>
+          <li class="course-platform">edX: Certificado Profesional Full Stack</li>
+        </ul>
+      </div>
+      
+      <div class="course-card">
+        <h3>Desarrollo Web</h3>
+        <ul>
+          <li class="course-platform">Coursera: Front-End Development</li>
+          <li class="course-platform">Udemy: JavaScript Moderno</li>
+          <li class="course-platform">edX: Especialización Web</li>
+        </ul>
+      </div>
+      
+      <div class="course-card">
+        <h3>Inteligencia Artificial</h3>
+        <ul>
+          <li class="course-platform">Coursera: Machine Learning</li>
+          <li class="course-platform">Udemy: IA para Todos</li>
+          <li class="course-platform">edX: MicroMasters en IA</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section animate">
+    <h2 class="section-title">Experiencia Profesional</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Director de Desarrollo</h3>
+        <h4>Magnética Agencia Creativa</h4>
+        <p>Presente</p>
+        <ul>
+          <li>Desarrollador Full Stack</li>
+          <li>Desarrollador de Aplicaciones Web</li>
+          <li>Desarrollador de Inteligencia Artificial</li>
+        </ul>
+      </div>
+      
+      <div class="timeline-item">
+        <h3>Coordinador Tecnológico</h3>
+        <h4>Diócesis de Florencia</h4>
+        <ul>
+          <li>Soporte técnico</li>
+          <li>Desarrollo de software</li>
+          <li>Diseño de sistemas de información</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Diseñador y Soporte</h3>
+        <h4>Cointelco S.A.</h4>
+        <ul>
+          <li>Diseño Publicitario</li>
+          <li>Soporte tecnológico</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Analista I</h3>
+        <h4>DIAN</h4>
+        <ul>
+          <li>Asistencia al Cliente</li>
+          <li>Soporte tecnológico</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section animate">
+    <h2 class="section-title">Habilidades Técnicas</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <i class="fas fa-code skill-icon"></i>
+        <h3>Desarrollo Full Stack</h3>
+        <p>Frontend y Backend, APIs RESTful, Bases de datos</p>
+      </div>
+      
+      <div class="skill-card">
+        <i class="fas fa-brain skill-icon"></i>
+        <h3>Inteligencia Artificial</h3>
+        <p>Machine Learning, Procesamiento de datos, Modelos predictivos</p>
+      </div>
+      
+      <div class="skill-card">
+        <i class="fas fa-project-diagram skill-icon"></i>
+        <h3>Gestión de Proyectos</h3>
+        <p>Metodologías ágiles, Liderazgo técnico, Planificación</p>
+      </div>
+      
+      <div class="skill-card">
+        <i class="fas fa-paint-brush skill-icon"></i>
+        <h3>Diseño Creativo</h3>
+        <p>UI/UX, Diseño responsivo, Animaciones</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section animate">
+    <h2 class="section-title">Referencias Profesionales</h2>
+    <div class="references-grid">
+      <div class="reference-card">
+        <h3>Isabel Cristina Poveda Vásquez</h3>
+        <p>Comunicadora Social</p>
+        <p><i class="fas fa-phone"></i> 300 313 6302</p>
+      </div>
+      
+      <div class="reference-card">
+        <h3>Hernando Vásquez Villarruel</h3>
+        <p>Director DIAN Florencia</p>
+        <p><i class="fas fa-phone"></i> 318 288 6697</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section animate">
+    <h2 class="section-title">Información Adicional</h2>
+    <div class="info-grid">
+      <div class="info-item">
+        <h3>Lugar de Nacimiento</h3>
+        <p>Florencia, Caquetá</p>
+      </div>
+      <div class="info-item">  
+        <h3>Lugar de Residencia</h3>
+        <p>Condominio Villa Fernanda, Florencia, Caquetá</p>
+      </div>
+    </div>
+  </section>
+
+  <button id="printBtn">
+    <i class="fas fa-print"></i> Imprimir CV
+  </button>
+
+</main>
+
+<script>
+// Animación al scroll
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.section').forEach(section => {
+  section.style.opacity = '0';
+  section.style.transform = 'translateY(20px)';
+  section.style.transition = 'all 0.6s ease-out';
+  observer.observe(section);
+});
+
+// Add smooth hover effects to sections
+document.querySelectorAll('.section').forEach(section => {
+  section.addEventListener('mouseenter', () => {
+    section.style.borderLeftWidth = '8px';
+  });
+  
+  section.addEventListener('mouseleave', () => {
+    section.style.borderLeftWidth = '4px';
+  });
+});
+
+// Interactividad en las tarjetas de habilidades
+document.querySelectorAll('.skill-card').forEach(card => {
+  card.addEventListener('mouseover', () => {
+    card.style.transform = 'scale(1.05)';
+    card.style.boxShadow = '0 15px 30px rgba(0,0,0,0.2)';
+  });
+  
+  card.addEventListener('mouseout', () => {
+    card.style.transform = 'scale(1)';
+    card.style.boxShadow = 'none';
+  });
+});
+
+// Hover effects for course cards
+document.querySelectorAll('.course-card').forEach(card => {
+  card.addEventListener('mouseenter', () => {
+    card.style.transform = 'translateY(-8px)';
+  });
+  
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'translateY(0)';
+  });
+});
+
+// Interactividad en los items de contacto
+document.querySelectorAll('.contact-item').forEach(item => {
+  const icon = item.querySelector('i');
+  
+  // Only add click class and handlers to contact-related items
+  if(icon.classList.contains('fa-phone') || 
+     icon.classList.contains('fa-envelope') || 
+     icon.classList.contains('fa-map-marker-alt')) {
+    
+    item.classList.add('clickable'); // Add clickable class
+    
+    item.addEventListener('click', function() {
+      const text = this.querySelector('span').textContent;
+      
+      if(icon.classList.contains('fa-phone')) {
+        window.location.href = `tel:${text.replace(/\s/g, '')}`;
+      }
+      else if(icon.classList.contains('fa-envelope')) {
+        window.location.href = `mailto:${text}`;
+      }
+      else if(icon.classList.contains('fa-map-marker-alt')) {
+        window.open(`https://www.google.com/maps/search/${encodeURIComponent(text)}`);
+      }
+      
+      // Animation feedback only for clickable items
+      this.style.transform = 'scale(0.95)';
+      setTimeout(() => {
+        this.style.transform = 'translateY(-5px)';
+      }, 200);
+    });
+  }
+});
+
+// Agregar funcionalidad de tooltip
+const tooltip = document.createElement('div');
+tooltip.style.cssText = `
+  position: fixed;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+`;
+document.body.appendChild(tooltip);
+
+document.querySelectorAll('.contact-item').forEach(item => {
+  const icon = item.querySelector('i');
+  
+  // Only add tooltip for contact-related items
+  if(icon.classList.contains('fa-phone') || 
+     icon.classList.contains('fa-envelope') || 
+     icon.classList.contains('fa-map-marker-alt')) {
+    
+    item.addEventListener('mouseover', (e) => {
+      const action = icon.classList.contains('fa-phone') ? 'Llamar' :
+                     icon.classList.contains('fa-envelope') ? 'Enviar email' :
+                     icon.classList.contains('fa-map-marker-alt') ? 'Ver en mapa' : '';
+      
+      if(action) {
+        tooltip.textContent = `Click para ${action}`;
+        tooltip.style.opacity = '1';
+        tooltip.style.left = e.pageX + 10 + 'px';
+        tooltip.style.top = e.pageY + 10 + 'px';
+      }
+    });
+    
+    item.addEventListener('mouseout', () => {
+      tooltip.style.opacity = '0';
+    });
+    
+    item.addEventListener('mousemove', (e) => {
+      tooltip.style.left = e.pageX + 10 + 'px';
+      tooltip.style.top = e.pageY + 10 + 'px';
+    });
+  }
+});
+
+// Print button functionality
+const printBtn = document.getElementById('printBtn');
+printBtn.addEventListener('click', () => window.print());
+</script>
+
+</body>
+</html>
