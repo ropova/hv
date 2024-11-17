@@ -1,674 +1,657 @@
-<html><head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rodolfo Poveda Vásquez - CV Interactivo</title>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-<style>
-:root {
-  --primary: #2563eb;    /* Rich blue */
-  --secondary: #1e40af;  /* Darker blue */
-  --accent: #3b82f6;     /* Bright blue */
-  --light: #f8fafc;      /* Very light background */
-  --dark: #1e293b;       /* Dark slate */
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-body {
-  line-height: 1.6;
-  color: var(--dark);
-  background: var(--light);
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-/* Header Styles */
-.header {
-  background: var(--dark);
-  padding: 4rem 0;
-  color: white;
-  position: relative;
-  overflow: hidden;
-}
-
-.header::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--primary);
-  opacity: 0.9;
-}
-
-.profile-card {
-  background: rgba(30, 41, 59, 0.8); /* Using dark color with transparency */
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  padding: 3rem;
-  position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-}
-
-.name {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  color: white;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  letter-spacing: -1px;
-}
-
-.title {
-  font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 2rem;
-  font-weight: 300;
-}
-
-/* Main Content Styles */
-.section {
-  padding: 3rem;
-  margin: 3rem 0;
-  background: white;
-  border-radius: 12px;
-  border-left: 4px solid var(--primary);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.03);
-  transition: all 0.3s ease;
-}
-
-.section:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-}
-
-.section-title {
-  font-size: 2rem;
-  color: var(--primary);
-  margin-bottom: 3rem;
-  position: relative;
-  padding-bottom: 1rem;
-  font-weight: 600;
-}
-
-.section-title::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 60px;
-  height: 3px;
-  background: var(--accent);
-  border-radius: 2px;
-}
-
-/* Contact Grid */
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.contact-item {
-  background: rgba(30, 41, 59, 0.6);
-  padding: 1.2rem 1.5rem;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  transition: all 0.3s ease;
-}
-
-.contact-item i {
-  font-size: 1.2rem;
-  color: var(--accent);
-}
-
-.contact-item span {
-  color: white;
-  font-size: 0.95rem;
-}
-
-.contact-item.clickable:hover {
-  background: rgba(30, 41, 59, 0.8);
-  transform: translateY(-2px);
-}
-
-/* Skills Section */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-}
-
-.skill-card {
-  background: white;
-  padding: 2.5rem;
-  border-radius: 15px;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(30, 41, 59, 0.1);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-
-.skill-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.1);
-}
-
-.skill-icon {
-  font-size: 2.5rem;
-  color: var(--primary);
-  margin-bottom: 1.5rem;
-}
-
-/* Timeline Item */
-.timeline-item {
-  margin-bottom: 2.5rem;
-  padding-bottom: 2.5rem;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-}
-
-.timeline-item:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-/* Certifications Section */
-.courses-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.5rem;
-  margin-top: 2rem;
-}
-
-.course-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-  transition: all 0.3s ease;
-  border: 1px solid rgba(0,0,0,0.08);
-}
-
-.course-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-}
-
-.course-card h3 {
-  color: var(--primary);
-  margin-bottom: 1.5rem;
-  font-size: 1.4rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--accent);
-}
-
-.course-platform {
-  margin: 1rem 0;
-  padding: 0.8rem;
-  background: var(--light);
-  border-radius: 8px;
-  list-style: none;
-  transition: all 0.3s ease;
-}
-
-.course-platform:hover {
-  background: var(--primary);
-  color: white;
-  padding-left: 1.2rem;
-}
-
-/* Print Button Style */
-#printBtn {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  background: var(--primary);
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 1rem;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-  transition: all 0.3s ease;
-}
-
-#printBtn:hover {
-  background: var(--secondary);
-  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
-}
-
-/* Additional Spacing */
-p {
-  margin-bottom: 1.5rem;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .header {
-    padding: 3rem 0;
-  }
-  
-  .name {
-    font-size: 2rem;
-  }
-  
-  .section {
-    padding: 2rem;
-    margin: 2rem 0;
-  }
-  
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .profile-card {
-    padding: 2rem;
-  }
-}
-
-/* Print Styles */
-@media print {
-  .header {
-    background: none;
-    color: black;
-    padding: 1rem 0;
-  }
-  
-  .profile-card {
-    background: none;
-    box-shadow: none;
-    border: 1px solid #ddd;
-  }
-  
-  .section {
-    break-inside: avoid;
-    border: 1px solid #ddd;
-    margin: 1rem 0;
-  }
-  
-  .contact-item {
-    background: none;
-    border: 1px solid #ddd;
-  }
-  
-  .name {
-    color: var(--primary);
-    -webkit-text-fill-color: initial;
-  }
-}
-
-html {
-  scroll-behavior: smooth;
-}
-</style>
-</head>
-<body>
-
-<header class="header">
-  <div class="container">
-    <div class="profile-card">
-      <h1 class="name">Rodolfo Poveda Vásquez</h1>
-      <p class="title">Director de Desarrollo & Profesional en Sistemas</p>
-      
-      <div class="contact-grid">
-        <div class="contact-item clickable">
-          <i class="fas fa-phone"></i>
-          <span>317 023 7360</span>
-        </div>
-        <div class="contact-item clickable">
-          <i class="fas fa-envelope"></i>
-          <span>rpovedav@gmail.com</span>
-        </div>
-        <div class="contact-item clickable">
-          <i class="fas fa-map-marker-alt"></i>
-          <span>Condominio Villa Fernanda, Florencia, Caquetá</span>
-        </div>
-        <div class="contact-item">
-          <i class="fas fa-id-card"></i>
-          <span>17.658.908 de Florencia</span>
-        </div>
-        <div class="contact-item">
-          <i class="fas fa-calendar"></i>
-          <span>26 de julio de 1978</span>
-        </div>
-        <div class="contact-item">
-          <i class="fas fa-user"></i>
-          <span>Soltero</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-
-<main class="container">
-  <section class="section animate">
-    <h2 class="section-title">Perfil Profesional</h2>
-    <p>
-      Profesional en Sistemas de Información con sólida experiencia en desarrollo web y de software, soporte técnico y gestión de proyectos tecnológicos. Destacado por mi capacidad para resolver problemas, creatividad en el diseño de soluciones innovadoras y habilidad para trabajar en equipo. Comprometido con el aprendizaje continuo y la aplicación eficiente de conocimientos para mejorar procesos y cumplir objetivos organizacionales.
-    </p>
-  </section>
-
-  <section class="section animate">
-    <h2 class="section-title">Educación</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <h3>Tecnólogo en Sistemas de Información</h3>
-        <p>1999</p>
-      </div>
-      <div class="timeline-item">
-        <h3>Bachiller Académico</h3>
-        <p>Seminario Menor San José</p>
-        <p>1994</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section animate">
-    <h2 class="section-title">Certificaciones y Cursos</h2>
-    <div class="courses-container">
-      <div class="course-card">
-        <h3>Desarrollo Full Stack</h3>
-        <ul>
-          <li class="course-platform">Coursera: Desarrollo Web Full Stack</li>
-          <li class="course-platform">Udemy: Curso Completo de Desarrollo Web</li>
-          <li class="course-platform">edX: Certificado Profesional Full Stack</li>
-        </ul>
-      </div>
-      
-      <div class="course-card">
-        <h3>Desarrollo Web</h3>
-        <ul>
-          <li class="course-platform">Coursera: Front-End Development</li>
-          <li class="course-platform">Udemy: JavaScript Moderno</li>
-          <li class="course-platform">edX: Especialización Web</li>
-        </ul>
-      </div>
-      
-      <div class="course-card">
-        <h3>Inteligencia Artificial</h3>
-        <ul>
-          <li class="course-platform">Coursera: Machine Learning</li>
-          <li class="course-platform">Udemy: IA para Todos</li>
-          <li class="course-platform">edX: MicroMasters en IA</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="section animate">
-    <h2 class="section-title">Experiencia Profesional</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <h3>Director de Desarrollo</h3>
-        <h4>Magnética Agencia Creativa</h4>
-        <p>Presente</p>
-        <ul>
-          <li>Desarrollador Full Stack</li>
-          <li>Desarrollador de Aplicaciones Web</li>
-          <li>Desarrollador de Inteligencia Artificial</li>
-        </ul>
-      </div>
-      
-      <div class="timeline-item">
-        <h3>Coordinador Tecnológico</h3>
-        <h4>Diócesis de Florencia</h4>
-        <ul>
-          <li>Soporte técnico</li>
-          <li>Desarrollo de software</li>
-          <li>Diseño de sistemas de información</li>
-        </ul>
-      </div>
-
-      <div class="timeline-item">
-        <h3>Diseñador y Soporte</h3>
-        <h4>Cointelco S.A.</h4>
-        <ul>
-          <li>Diseño Publicitario</li>
-          <li>Soporte tecnológico</li>
-        </ul>
-      </div>
-
-      <div class="timeline-item">
-        <h3>Analista I</h3>
-        <h4>DIAN</h4>
-        <ul>
-          <li>Asistencia al Cliente</li>
-          <li>Soporte tecnológico</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="section animate">
-    <h2 class="section-title">Habilidades Técnicas</h2>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <i class="fas fa-code skill-icon"></i>
-        <h3>Desarrollo Full Stack</h3>
-        <p>Frontend y Backend, APIs RESTful, Bases de datos</p>
-      </div>
-      
-      <div class="skill-card">
-        <i class="fas fa-brain skill-icon"></i>
-        <h3>Inteligencia Artificial</h3>
-        <p>Machine Learning, Procesamiento de datos, Modelos predictivos</p>
-      </div>
-      
-      <div class="skill-card">
-        <i class="fas fa-project-diagram skill-icon"></i>
-        <h3>Gestión de Proyectos</h3>
-        <p>Metodologías ágiles, Liderazgo técnico, Planificación</p>
-      </div>
-      
-      <div class="skill-card">
-        <i class="fas fa-paint-brush skill-icon"></i>
-        <h3>Diseño Creativo</h3>
-        <p>UI/UX, Diseño responsivo, Animaciones</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section animate">
-    <h2 class="section-title">Referencias Profesionales</h2>
-    <div class="references-grid">
-      <div class="reference-card">
-        <h3>Isabel Cristina Poveda Vásquez</h3>
-        <p>Comunicadora Social</p>
-        <p><i class="fas fa-phone"></i> 300 313 6302</p>
-      </div>
-      
-      <div class="reference-card">
-        <h3>Hernando Vásquez Villarruel</h3>
-        <p>Director DIAN Florencia</p>
-        <p><i class="fas fa-phone"></i> 318 288 6697</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section animate">
-    <h2 class="section-title">Información Adicional</h2>
-    <div class="info-grid">
-      <div class="info-item">
-        <h3>Lugar de Nacimiento</h3>
-        <p>Florencia, Caquetá</p>
-      </div>
-      <div class="info-item">  
-        <h3>Lugar de Residencia</h3>
-        <p>Condominio Villa Fernanda, Florencia, Caquetá</p>
-      </div>
-    </div>
-  </section>
-
-  <button id="printBtn">
-    <i class="fas fa-print"></i> Imprimir CV
-  </button>
-
-</main>
-
-<script>
-// Animación al scroll
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-      observer.unobserve(entry.target);
+<html><head><base href="." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Isabel Poveda - Comunicadora Estratégica</title>
+    <style>
+    /* Update color scheme */
+    :root {
+        --primary: #40A0A0;    /* Teal */
+        --secondary: #FF69B4;  /* Pink */
+        --accent: #F0F8FF;     /* Light blue */
+        --text: #333333;       /* Dark gray */
+        --background: #FFFFFF; /* White */
     }
-  });
-}, observerOptions);
-
-document.querySelectorAll('.section').forEach(section => {
-  section.style.opacity = '0';
-  section.style.transform = 'translateY(20px)';
-  section.style.transition = 'all 0.6s ease-out';
-  observer.observe(section);
-});
-
-// Add smooth hover effects to sections
-document.querySelectorAll('.section').forEach(section => {
-  section.addEventListener('mouseenter', () => {
-    section.style.borderLeftWidth = '8px';
-  });
-  
-  section.addEventListener('mouseleave', () => {
-    section.style.borderLeftWidth = '4px';
-  });
-});
-
-// Interactividad en las tarjetas de habilidades
-document.querySelectorAll('.skill-card').forEach(card => {
-  card.addEventListener('mouseover', () => {
-    card.style.transform = 'scale(1.05)';
-    card.style.boxShadow = '0 15px 30px rgba(0,0,0,0.2)';
-  });
-  
-  card.addEventListener('mouseout', () => {
-    card.style.transform = 'scale(1)';
-    card.style.boxShadow = 'none';
-  });
-});
-
-// Hover effects for course cards
-document.querySelectorAll('.course-card').forEach(card => {
-  card.addEventListener('mouseenter', () => {
-    card.style.transform = 'translateY(-8px)';
-  });
-  
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = 'translateY(0)';
-  });
-});
-
-// Interactividad en los items de contacto
-document.querySelectorAll('.contact-item').forEach(item => {
-  const icon = item.querySelector('i');
-  
-  // Only add click class and handlers to contact-related items
-  if(icon.classList.contains('fa-phone') || 
-     icon.classList.contains('fa-envelope') || 
-     icon.classList.contains('fa-map-marker-alt')) {
     
-    item.classList.add('clickable'); // Add clickable class
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
     
-    item.addEventListener('click', function() {
-      const text = this.querySelector('span').textContent;
-      
-      if(icon.classList.contains('fa-phone')) {
-        window.location.href = `tel:${text.replace(/\s/g, '')}`;
-      }
-      else if(icon.classList.contains('fa-envelope')) {
-        window.location.href = `mailto:${text}`;
-      }
-      else if(icon.classList.contains('fa-map-marker-alt')) {
-        window.open(`https://www.google.com/maps/search/${encodeURIComponent(text)}`);
-      }
-      
-      // Animation feedback only for clickable items
-      this.style.transform = 'scale(0.95)';
-      setTimeout(() => {
-        this.style.transform = 'translateY(-5px)';
-      }, 200);
+    body {
+        background-color: var(--background);
+        color: var(--text);
+        line-height: 1.6;
+    }
+    
+    /* Modern navigation */
+    nav {
+        background: var(--primary);
+        padding: 1rem;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .nav-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+    }
+    
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+        color: var(--accent);
+        text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    }
+    
+    /* Profile section */
+    .profile-section {
+        text-align: center;
+        padding: 4rem 2rem;
+        background: var(--accent);
+    }
+    
+    .profile-photo {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        margin: 0 auto 2rem;
+        border: 5px solid var(--primary);
+        object-fit: cover;
+    }
+    
+    /* Simplified hero section */
+    .hero {
+        height: 60vh;
+        background: linear-gradient(135deg, var(--primary), #2D7A7A);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .hero-content {
+        color: white;
+        padding: 2rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    /* Portfolio sections */
+    .section {
+        background: white;
+        padding: 4rem 1rem;
+    }
+    
+    .section-title {
+        text-align: center;
+        margin-bottom: 2rem; /* Increased margin */
+    }
+    
+    .section-title h2 {
+        font-weight: 600;
+        color: var(--secondary);
+        position: relative;
+        display: inline-block;
+    }
+    
+    .section-title h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, var(--secondary), var(--primary));
+        border-radius: 3px;
+    }
+    
+    .section-title p {
+        margin-top: 1rem; /* Added space between title and text */
+    }
+    
+    .portfolio-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    /* Writing samples */
+    .writing-sample {
+        position: relative;
+        background: linear-gradient(145deg, white, #f8f6fa);
+        padding: 2rem;
+        border-radius: 15px;
+        margin-bottom: 2rem;
+        transition: all 0.3s ease;
+    }
+    
+    .writing-sample:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .writing-sample h4 {
+        font-size: 1.4rem;
+        margin: 1rem 0;
+        color: var(--primary);
+    }
+    
+    .writing-sample p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin: 1.5rem 0;
+        color: var(--text);
+    }
+    
+    /* Slider styles */
+    .slider-container {
+        position: relative;
+        width: 100%;
+        max-width: 800px; /* Increased from 600px */
+        margin: 0 auto;
+        overflow: hidden;
+        border-radius: 15px;
+    }
+    
+    .slider {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: 100%;
+    }
+    
+    .slide {
+        min-width: 100%;
+        height: auto; /* Change from 100% */
+    }
+    
+    .slide img {
+        width: 100%;
+        height: auto;
+        max-height: 500px; /* Increased from 400px */
+        object-fit: contain; /* Change from cover */
+        display: block; /* Add this */
+    }
+    
+    .slider-nav {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        z-index: 2;
+    }
+    
+    .slider-dot {
+        width: 12px; /* Slightly larger */
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.5); /* Darker for better visibility */
+        cursor: pointer;
+        border: none;
+    }
+    
+    .slider-dot.active {
+        background: var(--primary); /* Use theme color */
+    }
+    
+    .slider-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.7); /* Make more visible */
+        color: white;
+        padding: 1rem; /* Increased padding */
+        width: 40px; /* Larger arrows */
+        height: 40px; /* Larger arrows */
+        cursor: pointer;
+        border: none;
+        z-index: 2;
+        border-radius: 50%; /* Make circular */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+    }
+    
+    .slider-arrow.prev {
+        left: 20px;
+    }
+    
+    .slider-arrow.next {
+        right: 20px;
+    }
+    
+    /* Contact section */
+    .contact {
+        background: linear-gradient(to right, var(--secondary), var(--primary));
+        color: white;
+        text-align: center;
+        padding: 4rem 2rem; /* Increased padding */
+    }
+    
+    .contact .section-title h2 {
+        color: white;  /* Make title text white */
+        font-weight: 600;
+        position: relative;
+        display: inline-block;
+        margin-bottom: 2rem;
+    }
+    
+    .contact .section-title h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: white;  /* Make line white */
+        border-radius: 3px;
+        opacity: 0.8;  /* Add slight transparency */
+    }
+    
+    .contact p {
+        color: white;  /* Ensure paragraph text is white */
+        font-size: 1.2rem;
+        margin-top: 1.5rem;
+    }
+    
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 3rem; /* Increased margin-top */
+        padding-bottom: 1rem; /* Added bottom padding */
+    }
+    
+    .social-links a {
+        color: var(--secondary);
+        background: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease, background 0.3s ease;
+    }
+    
+    .social-links a:hover {
+        transform: translateY(-5px);
+        background: var(--primary);
+        color: white;
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .animate {
+        animation: fadeIn 1s ease forwards;
+    }
+    
+    /* Add new styles while keeping existing ones */
+    .portfolio-image {
+        width: 100%;
+        height: 300px; /* Increased from 200px */
+        object-fit: cover;
+        border-radius: 15px;
+        margin-bottom: 1rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .portfolio-image:hover {
+        transform: scale(1.02);
+    }
+    
+    .testimonial {
+        font-style: italic;
+        color: #666;
+        margin-top: 1rem;
+        padding: 1rem;
+        background: #f8f6ff;
+        border-radius: 8px;
+    }
+    
+    .client-logo {
+        width: 80px;
+        height: auto;
+        margin: 0.5rem;
+        filter: grayscale(1);
+        transition: filter 0.3s ease;
+    }
+    
+    .client-logo:hover {
+        filter: grayscale(0);
+    }
+    
+    .clients-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+    
+    .creative-badge {
+        position: absolute;
+        top: -15px;
+        right: -15px;
+        background: var(--accent);
+        color: white;
+        padding: 0.5rem;
+        transform: rotate(45deg);
+        font-size: 0.8rem;
+        z-index: 1;
+    }
+    
+    /* Removed metrics-related styles */
+    .metrics-grid,
+    .writing-stats,
+    .metric-item,
+    .metric-value,
+    .metric-label {
+        display: none;
+    }
+    
+    /* Enhance layout for creative work */
+    .work-category {
+        display: inline-block;
+        padding: 0.3rem 0.8rem;
+        background: linear-gradient(45deg, var(--secondary), var(--primary));
+        color: white;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+    }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
+    <body>
+        <nav>
+            <div class="nav-links">
+                <a href="#home">Inicio</a>
+                <a href="#about">Sobre mí</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#contact">Contacto</a>
+            </div>
+        </nav>
+    
+        <section class="profile-section">
+            <img src="/WhatsApp Image 2024-11-15 at 16.34.35-modified.png" 
+                 alt="Isabel Poveda - Mujer joven sonriente con un cardigan amarillo y una flor rosa en el cabello"
+                 class="profile-photo"
+                 width="200" height="200">
+            <h2>Isabel Poveda</h2>
+            <p>Comunicadora Estratégica</p>
+        </section>
+    
+        <section id="home" class="hero">
+            <div class="hero-content animate">
+                <h1>Comunicadora Estratégica</h1>
+                <p>Transformando ideas en mensajes que impactan</p>
+            </div>
+        </section>
+    
+        <section id="about" class="section">
+            <div class="section-title animate">
+                <h2>Sobre Mí</h2>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item animate">
+                    <h3>Mi Enfoque</h3>
+                    <p>Como Comunicadora Estratégica, mi objetivo es crear conexiones significativas entre marcas y audiencias. Transformo ideas en historias cautivadoras que no solo entretienen, sino que generan impacto real. Mi enfoque combina la creatividad del copywriting con una visión estratégica de la comunicación, diseñando mensajes y campañas que:</p>
+                    <ul style="list-style: none; margin-top: 1rem; padding-left: 0;">
+                        <li style="margin-bottom: 0.5rem;">✨ Construyen relaciones duraderas con las audiencias</li>
+                        <li style="margin-bottom: 0.5rem;">🎯 Alinean objetivos de comunicación con metas empresariales</li>
+                        <li style="margin-bottom: 0.5rem;">💡 Generan contenido relevante y memorable</li>
+                        <li style="margin-bottom: 0.5rem;">🤝 Fomentan el engagement y la conversación</li>
+                    </ul>
+                </div>
+                <div class="portfolio-item animate">
+                    <h3>Experiencia</h3>
+                    <p>Con más de 5 años de experiencia en el sector de la comunicación, he liderado estrategias creativas y de contenido en diversos sectores. Como consultora creativa, he desarrollado estrategias integrales que potenciaron el engagement con clientes y aliados comerciales. Mi experiencia demuestra cómo el poder de las palabras transforma objetivos comerciales en conexiones significativas:</p>
+                    <ul style="list-style: none; margin-top: 1rem; padding-left: 0;">
+                        <li style="margin-bottom: 0.5rem;">✍️ Creación de narrativas persuasivas para productos financieros y retail</li>
+                        <li style="margin-bottom: 0.5rem;">📱 Desarrollo de contenido estratégico para múltiples canales: SMS, email marketing y BTL</li>
+                        <li style="margin-bottom: 0.5rem;">💡 Conceptualización creativa y dirección de campañas integradas</li>
+                        <li style="margin-bottom: 0.5rem;">🎯 Adaptación de mensajes creativos para diferentes segmentos y canales</li>
+                        <li style="margin-bottom: 0.5rem;">📲 Creación de contenido para redes sociales: copywriting para posts y guiones para reels</li>
+                        <li style="margin-bottom: 0.5rem;">🤝 Desarrollo de campañas estratégicas con aliados comerciales</li>
+                        <li style="margin-bottom: 0.5rem;">🎨 Planteamiento de conceptos creativos para campañas de temporada</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    
+        <section id="portfolio" class="section">
+            <div class="section-title animate">
+                <h2>Portfolio de Escritura</h2>
+            </div>
+            <div class="portfolio-grid">
+                <div class="writing-sample animate">
+                    <div class="slider-container">
+                        <button class="slider-arrow prev">❮</button>
+                        <button class="slider-arrow next">❯</button>
+                        <div class="slider">
+                            <div class="slide">
+                                <img src="/WhatsApp Image 2024-11-15 at 17.22.34 (1).jpeg" alt="Banco Popular pensioner offers" width="600" height="auto">
+                            </div>
+                            <div class="slide">
+                                <img src="/WhatsApp Image 2024-11-15 at 17.22.34.jpeg" alt="Banco Popular retirement plan" width="600" height="auto">
+                            </div>
+                            <div class="slide">
+                                <img src="/WhatsApp Image 2024-11-15 at 17.22.33 (1).jpeg" alt="Banco Popular Prestayá loan" width="600" height="auto">
+                            </div>
+                            <div class="slide">
+                                <img src="/WhatsApp Image 2024-11-15 at 17.22.33.jpeg" alt="Banco Popular homeownership" width="600" height="auto">
+                            </div>
+                            <div class="slide">
+                                <img src="/WhatsApp Image 2024-11-15 at 17.22.30.jpeg" alt="Banco Popular Crédito Prestayá" width="600" height="auto">
+                            </div>
+                            <div class="slide">
+                                <img src="/WhatsApp Image 2024-11-15 at 17.22.32.jpeg" alt="Banco Popular credit program" width="600" height="auto">
+                            </div>
+                            <div class="slide">
+                                <img src="/WhatsApp Image 2024-11-15 at 17.22.31 (1).jpeg" alt="Banco Popular Prestayá family" width="600" height="auto">
+                            </div>
+                            <div class="slide">
+                                <img src="/WhatsApp Image 2024-11-15 at 17.22.31.jpeg" alt="Banco Popular teacher credit" width="600" height="auto">
+                            </div>
+                            <div class="slide">
+                                <img src="/WhatsApp Image 2024-11-15 at 17.21.54.jpeg" alt="Banco Popular app brochure" width="600" height="auto">
+                            </div>
+                            <div class="slide">
+                                <img src="/WhatsApp Image 2024-11-15 at 17.21.52 (1).jpeg" alt="Banco Popular tax ad" width="600" height="auto">
+                            </div>
+                            <div class="slide">
+                                <img src="/WhatsApp Image 2024-11-15 at 17.21.51.jpeg" alt="Banco Popular taxes" width="600" height="auto">
+                            </div>
+                            <div class="slide">
+                                <img src="/WhatsApp Image 2024-11-15 at 17.32.05.jpeg" alt="Banco Popular mobile app" width="600" height="auto">
+                            </div>
+                            <div class="slide">
+                                <img src="/WhatsApp Image 2024-11-15 at 17.29.23.jpeg" alt="Aval Diamante offer" width="600" height="auto">
+                            </div>
+                        </div>
+                        <div class="slider-nav"></div>
+                    </div>
+                    <h4>Campañas Banco Popular</h4>
+                    <p>Como comunicadora estratégica para Banco Popular, desarrollé campañas integrales que abarcaron diversos productos y servicios financieros. El trabajo incluyó:</p>
+                    <ul style="list-style: none; margin-top: 1rem; padding-left: 0;">
+                        <li style="margin-bottom: 0.5rem;">💰 Desarrollo de copy para productos financieros y servicios bancarios</li>
+                        <li style="margin-bottom: 0.5rem;">📱 Creación de contenido para canales digitales y app móvil</li>
+                        <li style="margin-bottom: 0.5rem;">📋 Comunicación estratégica para diferentes segmentos: pensionados, docentes, fuerza pública</li>
+                        <li style="margin-bottom: 0.5rem;">🏠 Campañas especializadas para productos como crédito de vivienda y Prestayá</li>
+                        <li style="margin-bottom: 0.5rem;">💡 Conceptualización creativa para campañas estacionales y promociones</li>
+                    </ul>
+                </div>
+    
+                <div class="writing-sample animate">
+                    <span class="work-category">Estrategia Creativa</span>
+                    <div class="slider-container">
+                        <button class="slider-arrow prev">❮</button>
+                        <button class="slider-arrow next">❯</button>
+                        <div class="slider">
+                            <div class="slide">
+                                <img src="/WhatsApp Image 2024-11-16 at 19.38.06 (1).jpeg" alt="Palatino's 19th anniversary celebration" width="600" height="auto">
+                            </div>
+                            <div class="slide">
+                                <img src="/WhatsApp Image 2024-11-16 at 19.38.08.jpeg" alt="Infinity Roses promotion at Palatino" width="600" height="auto">
+                            </div>
+                            <div class="slide">
+                                <img src="/WhatsApp Image 2024-11-16 at 19.38.07 (1).jpeg" alt="Palatino magical theme promotion" width="600" height="auto">
+                            </div>
+                            <div class="slide">
+                                <img src="/WhatsApp Image 2024-11-16 at 19.38.07.jpeg" alt="Palatino father's day gift promotion" width="600" height="auto">
+                            </div>
+                            <div class="slide">
+                                <img src="/WhatsApp Image 2024-11-16 at 19.38.06 (2).jpeg" alt="World Environmental Health Day at Palatino" width="600" height="auto">
+                            </div>
+                            <div class="slide">
+                                <img src="/WhatsApp Image 2024-11-16 at 19.38.06.jpeg" alt="Colombia themed Palatino promotional bag" width="600" height="auto">
+                            </div>
+                            <div class="slide">
+                                <img src="/WhatsApp Image 2024-11-16 at 19.38.05.jpeg" alt="Christmas themed promotion at Palatino" width="600" height="auto">
+                            </div>
+                            <div class="slide">
+                                <img src="/WhatsApp Image 2024-11-16 at 19.38.04.jpeg" alt="Palatino's 20th anniversary collage" width="600" height="auto">
+                            </div>
+                        </div>
+                        <div class="slider-nav"></div>
+                    </div>
+                    <h4>Dirección Estratégica - Magnética</h4>
+                    <p>Lideré las estrategias de comunicación para diversos clientes, destacando la gestión integral para Centro Comercial Palatino. El trabajo incluyó:</p>
+                    <ul style="list-style: none; margin-top: 1rem; padding-left: 0;">
+                        <li style="margin-bottom: 0.5rem;">🎨 Conceptualización creativa para campañas de temporada</li>
+                        <li style="margin-bottom: 0.5rem;">📱 Desarrollo de parrillas de contenido para redes sociales</li>
+                        <li style="margin-bottom: 0.5rem;">📋 Diseño de planes estratégicos de comunicación</li>
+                        <li style="margin-bottom: 0.5rem;">🎯 Planificación y ejecución de activaciones comerciales</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    
+        <section id="contact" class="section contact">
+            <div class="section-title animate">
+                <h2>Contacto</h2>
+                <p>¿Listo para crear historias que dejen huella? ¡Hagamos magia con las palabras!</p>
+            </div>
+            <div class="social-links animate">
+                <a href="https://www.linkedin.com/in/isabel-cristina-poveda-vasquez-6a99ab189" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://instagram.com/isapova" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </section>
+    
+    <script>
+    // Intersection Observer para animaciones
+    const observerOptions = {
+        threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('.animate').forEach(element => {
+        element.style.opacity = 0;
+        element.style.transform = 'translateY(20px)';
+        observer.observe(element);
     });
-  }
-});
-
-// Agregar funcionalidad de tooltip
-const tooltip = document.createElement('div');
-tooltip.style.cssText = `
-  position: fixed;
-  background: rgba(0,0,0,0.8);
-  color: white;
-  padding: 8px 12px;
-  border-radius: 4px;
-  font-size: 14px;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 1000;
-`;
-document.body.appendChild(tooltip);
-
-document.querySelectorAll('.contact-item').forEach(item => {
-  const icon = item.querySelector('i');
-  
-  // Only add tooltip for contact-related items
-  if(icon.classList.contains('fa-phone') || 
-     icon.classList.contains('fa-envelope') || 
-     icon.classList.contains('fa-map-marker-alt')) {
     
-    item.addEventListener('mouseover', (e) => {
-      const action = icon.classList.contains('fa-phone') ? 'Llamar' :
-                     icon.classList.contains('fa-envelope') ? 'Enviar email' :
-                     icon.classList.contains('fa-map-marker-alt') ? 'Ver en mapa' : '';
-      
-      if(action) {
-        tooltip.textContent = `Click para ${action}`;
-        tooltip.style.opacity = '1';
-        tooltip.style.left = e.pageX + 10 + 'px';
-        tooltip.style.top = e.pageY + 10 + 'px';
-      }
+    // Smooth scrolling para navegación
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
     });
     
-    item.addEventListener('mouseout', () => {
-      tooltip.style.opacity = '0';
-    });
+    // Update the initSlider function to handle multiple sliders
+    function initSlider() {
+        document.querySelectorAll('.slider-container').forEach((container, containerIndex) => {
+            const slider = container.querySelector('.slider');
+            const slides = container.querySelectorAll('.slide');
+            const nav = container.querySelector('.slider-nav');
+            const prevBtn = container.querySelector('.slider-arrow.prev');
+            const nextBtn = container.querySelector('.slider-arrow.next');
+            let currentSlide = 0;
     
-    item.addEventListener('mousemove', (e) => {
-      tooltip.style.left = e.pageX + 10 + 'px';
-      tooltip.style.top = e.pageY + 10 + 'px';
-    });
-  }
-});
-
-// Print button functionality
-const printBtn = document.getElementById('printBtn');
-printBtn.addEventListener('click', () => window.print());
-</script>
-
-</body>
-</html>
+            // Create navigation dots
+            slides.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.classList.add('slider-dot');
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(index));
+                nav.appendChild(dot);
+            });
+    
+            function goToSlide(n) {
+                currentSlide = n;
+                if (currentSlide >= slides.length) {
+                    currentSlide = 0;
+                } else if (currentSlide < 0) {
+                    currentSlide = slides.length - 1;
+                }
+    
+                const offset = -currentSlide * 100;
+                slider.style.transform = `translateX(${offset}%)`;
+                
+                // Update dots
+                container.querySelectorAll('.slider-dot').forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
+                });
+            }
+    
+            function nextSlide() {
+                goToSlide(currentSlide + 1);
+            }
+    
+            function prevSlide() {
+                goToSlide(currentSlide - 1);
+            }
+    
+            prevBtn.addEventListener('click', prevSlide);
+            nextBtn.addEventListener('click', nextSlide);
+    
+            // Auto advance slides
+            setInterval(nextSlide, 8000);
+        });
+    }
+    
+    // Call initSlider after the page loads
+    document.addEventListener('DOMContentLoaded', initSlider);
+    </script>
+    </body></html>
